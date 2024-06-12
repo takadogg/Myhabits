@@ -1,0 +1,16 @@
+<header class="top-page-header">
+  <div class="header-left">
+    <%= link_to image_tag("Myhabits-logo.png", class:"Myhabits-icon"), "/" %>
+  </div>
+  <div class="header-right">
+    <ul class="users-manage">
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, "#", class: "user-nickname"  %></li>
+        <li><%= link_to 'ログアウト', "#", data: {turbo_method: :delete}, class: "logout"  %></li>
+      <% else %>
+        <li><%= link_to 'ログイン',  "#", class: "login" %></li>
+        <li><%= link_to '新規登録', "#", class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
