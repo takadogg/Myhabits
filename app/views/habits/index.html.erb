@@ -1,5 +1,20 @@
 <%= render "shared/header" %>
 
-<%= month_calendar do |date| %>
-  <%= date %>
+<%= form_with url:  "/posts", method: :post,id: "form" do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit '投稿する' , id: "submit" %>
+<% end %>
+
+<div id="list">
+</div>
+
+<% @habits.each do |habit| %>
+<div class="post">
+  <div class="post-date">
+    投稿日時：<%= habit.created_at %>
+  </div>
+  <div class="post-content">
+    <%= habit.habit %>
+  </div>
+</div>
 <% end %>
