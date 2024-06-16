@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_12_073701) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_15_021253) do
   create_table "habits", charset: "utf8", force: :cascade do |t|
     t.string "habit", null: false
     t.integer "evaluation_id", null: false
-    t.integer "time"
     t.text "memo"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

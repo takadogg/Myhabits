@@ -80,3 +80,7 @@ gem 'devise'
 gem "simple_calendar", "~> 2.0"
 
 gem 'sassc-rails'
+
+gem 'active_hash'
+
+gem 'pry-rails'
