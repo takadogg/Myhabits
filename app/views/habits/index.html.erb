@@ -1,8 +1,9 @@
 <%= render "shared/header" %>
 
-<%= form_with url:  "/posts", method: :post,id: "form" do |form| %>
-  <%= form.text_field :content %>
-  <%= form.submit '投稿する' , id: "submit" %>
+<%= form_with url:  "/habits", method: :post,id: "form" do |form| %>
+  <%= form.submit '記録する' , id: "submit" %>
+  <%= form.text_field :habit , id: "habit"%>
+  <%= form.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"select-box", id:"habit-evaluation"}) %>
 <% end %>
 
 <div id="list">
@@ -10,11 +11,14 @@
 
 <% @habits.each do |habit| %>
 <div class="post">
-  <div class="post-date">
+  <div class="habit-date">
     投稿日時：<%= habit.created_at %>
   </div>
-  <div class="post-content">
+  <div class="habit-habit">
     <%= habit.habit %>
+  </div>
+  <div class="habit-evaluation">
+    <%= habit.evaluation.name %>
   </div>
 </div>
 <% end %>
